@@ -12,19 +12,20 @@ else if (n== 2){
 else {
 
 	let encontrado = false;
-	n++;
+  n++;
 
 	while(encontrado == false){
 
 		let primo = true;
+    let limite = 0;
 		if(n>5000000){
-			let limite = Math.sqrt(n);
+			limite = Math.sqrt(n);
 		}
 		else{
-			let limite = (n/2)+1
+			limite = (n/2)+1
 		}
 
-		for (i=3;i<limite;i++){
+		for (i=2;i<limite;i++){
 			if(  (n % i) === 0 ){
     			primo = false;
 		}
