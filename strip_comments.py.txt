@@ -1,0 +1,26 @@
+def strip_comments(input_string, markers):
+    # Split the input string into lines
+    lines = input_string.split('\n')
+    
+    # List to hold the processed lines
+    processed_lines = []
+    
+    # Process each line
+    for line in lines:
+        # Assume the whole line is initially included
+        strip_position = len(line)
+        
+        # Check for each marker in the line
+        for marker in markers:
+            # Find the position of the marker
+            position = line.find(marker)
+            if position != -1:
+                # Update the strip position if this marker is found earlier in the line
+                strip_position = min(strip_position, position)
+        
+        # Append the stripped line to the processed list
+        # Using the line up to the strip position, then strip only the trailing spaces
+        processed_lines.append(line[:strip_position].rstrip())
+    
+    # Join all processed lines with newline character
+    return '\n'.join(processed_lines)
